@@ -29,7 +29,7 @@ sap.ui.define([
 
             // Check if first name is blank
             if (oInputFNameValue === ""){
-                sap.m.MessageToast.show("Required Field is blank"); 
+                sap.m.MessageToast.show("Required Field is blankX"); 
             }
         },
 
