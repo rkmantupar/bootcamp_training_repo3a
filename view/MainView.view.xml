@@ -1,0 +1,110 @@
+<mvc:View controllerName="com.training.exer1mantupar.controller.MainView"
+    xmlns:mvc="sap.ui.core.mvc"
+    xmlns="sap.m"    
+    xmlns:f="sap.ui.layout.form"
+    xmlns:core="sap.ui.core">
+
+    <Page id="page" title="{i18n>title}" floatingFooter="true" class="sapUiResponsivePadding--header sapUiResponsivePadding--content sapUiResponsivePadding--footer sapUiResponsivePadding--floatingFooter" >    
+        <VBox id="idVBox" class="sapUiSmallMargin">
+            <f:SimpleForm id="idSimpleForm" editable="true" layout="ResponsiveGridLayout" title="Details" labelSpanXL="3" labelSpanL="3" labelSpanM="3" labelSpanS="12" adjustLabelSpan="false" emptySpanXL="4" emptySpanL="4" emptySpanM="4" emptySpanS="0" columnsXL="1" columnsL="1" columnsM="1" singleContainerFullSize="false">
+                <f:content>
+                    <Label id="idLblFName" text="{i18n>firstNameLbl}" />
+                    <Input id="idInptFName" value="" placeholder="Enter First Name"/>
+                    <Label id="idLblLName" text="{i18n>lastNameLbl}" />
+                    <Input id="idInptLName" value="" placeholder="Enter Last Name"/>
+                    <Label id="idLblMOP" text="{i18n>payModeLbl}"/>
+                    <Select id="idSelMOP" forceSelection="false" change="onChangeMOP"  >
+                        <items>
+                            <core:Item id="idItmCOD" text="{i18n>cashOnDelLbl}" key="COD"/>
+                            <core:Item id="idItmCC" text="{i18n>credCardLbl}" key="CC"/>
+                            <core:Item id="idItmGCash" text="{i18n>gCashLbl}" key="GCASH"/>
+                        </items>
+                    </Select>
+                </f:content>
+            </f:SimpleForm>
+
+            <Table id="idTableSCart" inset="false">
+                <headerToolbar>
+                    <OverflowToolbar id="idOFT">
+                        <content>
+                            <Title id="idTableTitleSCart" text="{i18n>shopCartLbl}"/>
+                            <ToolbarSpacer id="idTSpacer"/>
+                            <Button id="idBtnAddItems" icon="sap-icon://cart-4" tooltip="Add to Cart" press="onAddItem"/>		
+                        </content>
+                    </OverflowToolbar>
+                </headerToolbar>
+                <columns>
+                    <Column id="idCol1">
+                        <Text id="idColText1" text="{i18n>itemLbl}" />
+                    </Column>
+                    <Column id="idCol2">
+                        <Text id="idColText2" text="{i18n>quantityLbl}" />
+                    </Column>
+                    <Column id="idCol3">
+                        <Text id="idColText3" text="{i18n>priceLbl}" />
+                    </Column>
+                </columns>
+                <items>
+                    <ColumnListItem id="idColListItem1" vAlign="Middle">
+                        <cells>
+                            <Text id="idText1" text="iPhone 14 Pro Max" />
+                            <Text id="idText2" text="2" />
+                            <Text id="idText3" text="$2000" />
+                        </cells>
+                    </ColumnListItem>
+                    <ColumnListItem id="idColListItem2" vAlign="Middle">
+                        <cells>
+                            <Text id="idText4" text="Louis Vuitton Speedy" />
+                            <Text id="idText5" text="1" />
+                            <Text id="idText6" text="$14000" />
+                        </cells>
+                    </ColumnListItem>
+                </items>
+            </Table>
+        </VBox>
+
+        <VBox id="idVBox2" class="sapUiSmallMargin">
+            <f:SimpleForm id="idSimpleForm2" editable="true" layout="ResponsiveGridLayout" title="Information Details" labelSpanXL="3" labelSpanL="3" labelSpanM="3" labelSpanS="12" adjustLabelSpan="false" emptySpanXL="4" emptySpanL="4" emptySpanM="4" emptySpanS="0" columnsXL="1" columnsL="1" columnsM="1" singleContainerFullSize="false">
+                <f:content>
+                    <Label id="idLblPhone" text="{i18n>mobNumbLbl}" visible="false"/>
+                    <Input id="idInputPhone" value="" visible="false"/>
+
+                    <Label id="idLblAddr" text="{i18n>delAddrLbl}" visible="false"/>
+                    <Input id="idInputAddr" value="" visible="false"/>
+
+                    <Label id="idLblAmount" text="{i18n>payAmntLbl}" visible="false"/>
+                    <Input id="idInputAmount" value="" visible="false" width="20%"/>
+
+                    <Label id="idLblAmountCOD" text="{i18n>payAmntLbl}" visible="false"/>
+                    <Input id="idInputAmountCOD" value="" visible="false" width="20%"/>
+
+                    <Label id="idLblCC" text="{i18n>credCardNumbLbl}" visible="false" />
+                    <Input id="idInputCC" value="" visible="false" width="40%"/>
+
+                    <Label id="idLblCCCVV" text="{i18n>cvvCvcLbl}" visible="false"/>
+                    <Input id="idInputCCCVV" value="" visible="false" width="10%"/>
+
+                    <Label id="idLblExpDate" text="{i18n>expDateLbl}" visible="false"/>
+                    <Input id="idInputExpDate" value="" visible="false" width="20%"/>
+
+                    <Label id="idLblNameCC" text="{i18n>nameOnCardLbl}" visible="false"/>
+                    <Input id="idInputNameCC" value="" visible="false" width="50%"/>
+
+                    <Label id="idLblBillAddr" text="{i18n>billAddrLbl}" visible="false"/>
+                    <Input id="idInputBillAddr" value="" visible="false"/>
+
+                    <Label id="idLblZipCode" text="{i18n>zipCodeLbl}" visible="false"/>
+                    <Input id="idInputZipCode" value="" visible="false" width="10%"/>
+                </f:content>
+            </f:SimpleForm>
+        </VBox>
+
+        <footer>
+            <OverflowToolbar id="idOFTFooter">
+                <ToolbarSpacer id="idTSpacerFooter"/>
+                <Button id="idBtnCheckout" text="{i18n>checkOutLbl}" tooltip="Check Out" press="onPressCheckout"/>
+            </OverflowToolbar>
+        </footer>
+
+    </Page>
+</mvc:View>
